@@ -1,6 +1,8 @@
 package ohtu;
 
 import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -85,6 +87,17 @@ public class OstoskoriTest {
 
         assertEquals(6, kori.hinta());
  
+    }
+
+    @Test
+    public void yhdenTuotteenLisaamisenJalkeenKorissaYksiOstosOlio() {
+        Tuote maito = new Tuote("maito", 3);
+        kori.lisaaTuote(maito);
+ 
+        List<Ostos> ostokset = kori.ostokset();
+ 
+        // testaa että metodin palauttamin listan pituus 1
+        assertEquals(1, ostokset.size());
     }
 
 }
