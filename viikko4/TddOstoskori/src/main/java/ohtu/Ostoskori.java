@@ -32,7 +32,11 @@ public class Ostoskori {
         if (ostokset.isEmpty()) {
             return 0;
         }
-        return 0;
+        int hinta = 0;
+        for (int i = 0; i < ostokset.size(); i++) {
+            hinta += ostokset.get(i).hinta();
+        }
+        return hinta;
     }
  
     public void lisaaTuote(Tuote lisattava) {
