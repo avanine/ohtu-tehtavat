@@ -60,6 +60,9 @@ public class Ostoskori {
         for (int i = 0; i < ostokset.size(); i++) {
             if (ostokset.get(i).tuotteenNimi().equals(poistettava.getNimi())) {
                 ostokset.get(i).muutaLukumaaraa(-1);
+                if (ostokset.get(i).lukumaara() == 0) {
+                    ostokset.remove(ostokset.get(i));
+                }
             }
         } 
         
