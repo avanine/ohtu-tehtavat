@@ -18,7 +18,12 @@ public class Ostoskori {
             return 0;
         }
 
-        return 0;
+        int maara = 0;
+
+        for (int i = 0; i < ostokset.size(); i++) {
+            maara += ostokset.get(i).lukumaara();
+        }
+        return maara;
     }
  
     public int hinta() {
@@ -31,7 +36,8 @@ public class Ostoskori {
     }
  
     public void lisaaTuote(Tuote lisattava) {
-        // lisää tuotteen
+        Ostos ostos = new Ostos(lisattava);
+        ostokset.add(ostos);
     }
  
     public void poista(Tuote poistettava) {
