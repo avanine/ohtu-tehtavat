@@ -46,18 +46,23 @@ public class Ostoskori {
         for (int i = 0; i < ostokset.size(); i++) {
             if (ostokset.get(i).tuotteenNimi().equals(lisattava.getNimi())) {
                 tuoteOnKorissa = true;
+                ostokset.get(i).muutaLukumaaraa(1);
             }
         }
 
         if (!tuoteOnKorissa) {
             ostokset.add(ostos);
-        } else {
-            ostokset.get(ostokset.indexOf(ostos)).muutaLukumaaraa(1);
         }
     }
  
     public void poista(Tuote poistettava) {
         // poistaa tuotteen
+        for (int i = 0; i < ostokset.size(); i++) {
+            if (ostokset.get(i).tuotteenNimi().equals(poistettava.getNimi())) {
+                ostokset.get(i).muutaLukumaaraa(-1);
+            }
+        } 
+        
     }
  
     public List<Ostos> ostokset() {
