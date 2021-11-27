@@ -1,5 +1,6 @@
 package ohtu;
 
+import java.net.SocketAddress;
 import java.util.Arrays;
 import java.util.List;
 
@@ -120,5 +121,15 @@ public class OstoskoriTest {
         kori.lisaaTuote(sokeri);
 
         assertEquals(2, kori.tavaroitaKorissa());
+    }
+
+    @Test
+    public void kahdenSamanTuotteenLisaamisenJalkeenKorissaYksiOstos() {
+        Tuote maito = new Tuote("maito", 3);
+
+        kori.lisaaTuote(maito);
+        kori.lisaaTuote(maito);
+
+        assertEquals(1, kori.ostokset().size());
     }
 }
