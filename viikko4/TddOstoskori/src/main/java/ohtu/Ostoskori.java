@@ -1,23 +1,33 @@
 package ohtu;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ostoskori {
+
+    List<Ostos> ostokset = new ArrayList<>();
  
     public int tavaroitaKorissa() {
         // kertoo korissa olevien tavaroiden lukumäärän
         // eli jos koriin lisätty 2 kpl tuotetta "maito", 
         //   tulee metodin palauttaa 2 
         // jos korissa on 1 kpl tuotetta "maito" ja 1 kpl tuotetta "juusto", 
-        //   tulee metodin palauttaa 2   
+        //   tulee metodin palauttaa 2 
+        
+        if (ostokset.isEmpty()) {
+            return 0;
+        }
 
-        return -1;
+        return 0;
     }
  
     public int hinta() {
         // kertoo korissa olevien tuotteiden yhteenlasketun hinnan
  
-        return -1;
+        if (ostokset.isEmpty()) {
+            return 0;
+        }
+        return 0;
     }
  
     public void lisaaTuote(Tuote lisattava) {
