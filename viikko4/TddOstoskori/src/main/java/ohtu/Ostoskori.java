@@ -41,7 +41,19 @@ public class Ostoskori {
  
     public void lisaaTuote(Tuote lisattava) {
         Ostos ostos = new Ostos(lisattava);
-        ostokset.add(ostos);
+        boolean tuoteOnKorissa = false;
+
+        for (int i = 0; i < ostokset.size(); i++) {
+            if (ostokset.get(i).tuotteenNimi().equals(lisattava.getNimi())) {
+                tuoteOnKorissa = true;
+            }
+        }
+
+        if (!tuoteOnKorissa) {
+            ostokset.add(ostos);
+        } else {
+            ostokset.get(ostokset.indexOf(ostos)).muutaLukumaaraa(1);
+        }
     }
  
     public void poista(Tuote poistettava) {
