@@ -8,8 +8,8 @@ repositories {
 }
 
 dependencies {
-    compile 'com.google.guava:guava:23.0'
-    testCompile 'junit:junit:4.13'
+    implementation 'com.google.guava:guava:23.0'
+    testImplementation 'junit:junit:4.13'
 }
 
 application {
